@@ -9,12 +9,14 @@ int main ()
     int broj_korisnika = 10;
     double stanje[50]={69.69, 250.00, 3456.5, 48.13, 486.23, 78.5, 814.59, -999.99, -48.45, 59.89};
 
+
     while(1)
     {
         int n;
         cout << "1.) Ispis Podataka " <<  endl;
         cout << "2.) Unos Podataka " <<  endl;
-        cout << "3.) Izlaz " <<  endl;
+        cout << "3.) Transakcija " <<  endl;
+        cout << "4.) Izlaz " <<  endl;
         cin >> n;
         if (n == 1)
         {
@@ -41,7 +43,24 @@ int main ()
             stanje [broj_korisnika] = novo_stanje;
             broj_korisnika++;
         }
-        else if(n == 3)
+        else if (n == 3)
+        {
+            int brojRacuna;
+            double promjena;
+            cout<< "Unesite broj racuna. ";
+            cin >> brojRacuna;
+            cout << "Unesite zeljenu transakciju: ";
+            cin >> promjena;
+            for (int i=0; i<broj_korisnika; i++)
+            {
+                if (broj_racuna [i] == brojRacuna)
+                {
+                    stanje[i]+=promjena; break;
+                }
+            }
+        }
+
+        else if(n == 4)
             break;
     cout << endl;
     }
